@@ -18,16 +18,16 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4294967295
   custom2:
-    graphic2: {r: 0, g: 0.6677432, b: 1, a: 1}
+    graphic2: {r: 0.4355955, g: 0.7169812, b: 0, a: 1}
     text2:
       serializedVersion: 2
-      rgba: 4294966499
+      rgba: 4294956352
   custom3:
     graphic3: {r: 0.48235294, g: 0.058286894, b: 0.066037714, a: 1}
     text3:
       serializedVersion: 2
       rgba: 4285838147
-  currentColor: {r: 0, g: 0.6677432, b: 1, a: 1}
+  currentColor: {r: 0.4355955, g: 0.7169812, b: 0, a: 1}
   textColor:
     serializedVersion: 2
-    rgba: 4294966499
+    rgba: 4294956352
