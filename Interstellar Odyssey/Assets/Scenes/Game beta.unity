@@ -475,16 +475,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0}
   sensitivity: 2.38
-  speed: 7.68
   camTransform: {fileID: 862301501}
   rigidbodyVehicle: {fileID: 911543606}
   jetRotateSpeed: 1.86
-  maxForwardVelocity: 3.04
-  Acceleration: 1.38
+  speed: 9
+  maxSpeed: 20
+  Acceleration: 0.1
   ACCelEnergy: 0
   jetBody: {fileID: 292082967}
   jetSensitivity: 0.96
   jetStop: 33.2
+  boostList:
+  - {fileID: 1379842335}
+  - {fileID: 1157136940}
+  - {fileID: 1788032434}
 --- !u!4 &911543609
 Transform:
   m_ObjectHideFlags: 0
@@ -505,6 +509,11 @@ Transform:
 --- !u!4 &1111089557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 844345309204799304, guid: 8445147705b544d4f963aa6a618a1def, type: 3}
+  m_PrefabInstance: {fileID: 1823442696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1157136940 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 844345309204799318, guid: 8445147705b544d4f963aa6a618a1def, type: 3}
   m_PrefabInstance: {fileID: 1823442696}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1161198207
@@ -591,6 +600,11 @@ PrefabInstance:
 --- !u!4 &1379842333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 844345309204799304, guid: 8445147705b544d4f963aa6a618a1def, type: 3}
+  m_PrefabInstance: {fileID: 1161198207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1379842335 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 844345309204799318, guid: 8445147705b544d4f963aa6a618a1def, type: 3}
   m_PrefabInstance: {fileID: 1161198207}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1431263237
@@ -791,6 +805,11 @@ MonoBehaviour:
 --- !u!4 &1788032432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 844345309204799304, guid: 8445147705b544d4f963aa6a618a1def, type: 3}
+  m_PrefabInstance: {fileID: 1994115890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1788032434 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 844345309204799318, guid: 8445147705b544d4f963aa6a618a1def, type: 3}
   m_PrefabInstance: {fileID: 1994115890}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1823442696

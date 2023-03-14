@@ -5,19 +5,20 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
-    //I know the code sucks but I was in 8th grade when I made it so that's my excuse
 
     //camera
     public Vector2 rotation;
     public float sensitivity;
-    public float speed;
     public Transform camTransform;
 
     //movement
     public Rigidbody rigidbodyVehicle;
     public float jetRotateSpeed;
-    Vector3 previousVelocity = Vector3.zero;
-    public float maxForwardVelocity;
+
+    public float speed;
+    public float maxSpeed;
+
+
     public float Acceleration;
     public float ACCelEnergy;
     private Vector3 currVel;
@@ -27,6 +28,10 @@ public class playerController : MonoBehaviour
     public Transform jetBody;
     public float jetSensitivity;
     public float jetStop;
+
+
+    //Boost code
+    public ParticleSystem[] boostList;
 
     //remember to use *Time.deltaTime;
 
@@ -62,10 +67,49 @@ public class playerController : MonoBehaviour
         else jetBodyLerp(0);
 
 
-        //Vehicle movement
-        currVel = transform.forward * speed + transform.right * Input.GetAxis("Horizontal") * speed;
 
-        if (Input.GetMouseButton(0)) currVel.z += Acceleration * Time.deltaTime;
+
+
+
+        // boost/movement(not working, will fix later)
+
+        currVel = transform.forward * speed + transform.right * Input.GetAxis("Horizontal") * speed;
+        if (Input.GetMouseButton(0))
+        {
+            currVel.z += Acceleration * Time.deltaTime; 
+            for(int i = 0; i < 3; i++)
+            {
+                if (boostList[i].startColor != Color.blue)
+                {
+                    boostList[i].Stop();
+                    boostList[i].startColor = Color.blue;
+                    boostList[i].Play();
+                }
+            }
+            Debug.Log(Acceleration * Time.deltaTime);
+        }
+        else
+        {
+            currVel.z -= Acceleration * Time.deltaTime;
+            for (int i = 0; i < 3; i++)
+            {
+                if (boostList[i].startColor != Color.red)
+                {
+                    boostList[i].Stop();
+                    boostList[i].startColor = Color.red;
+                    boostList[i].Play();
+                }
+            }
+        }
+        currVel.z = Mathf.Clamp(currVel.z, speed, maxSpeed);
+
+
+
+
+        //Vehicle movement
+
+
+        
 
 
         rigidbodyVehicle.velocity = currVel;
