@@ -14,9 +14,14 @@ public class playerController : MonoBehaviour
     public Transform camTransform;
 
     //movement
-    public Rigidbody rigidbodyCam;
+    public Rigidbody rigidbodyVehicle;
     public float jetRotateSpeed;
-    Vector3 previousVelocity;
+    Vector3 previousVelocity = Vector3.zero;
+    public float maxForwardVelocity;
+    public float Acceleration;
+    public float ACCelEnergy;
+    private Vector3 currVel;
+
 
     //jet spin
     public Transform jetBody;
@@ -37,18 +42,15 @@ public class playerController : MonoBehaviour
     {
         Vector3 direction = new Vector3(jetBody.rotation.eulerAngles.x, jetBody.rotation.eulerAngles.y, z);
         Quaternion targetRotation = Quaternion.Euler(direction);
-        jetBody.rotation = Quaternion.Lerp(jetBody.rotation, targetRotation, Time.deltaTime * 1);
+        jetBody.rotation = Quaternion.Lerp(jetBody.rotation, targetRotation, Time.deltaTime * jetRotateSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 rigidbodyAcceleration = (rigidbodyCam.velocity - previousVelocity) / Time.fixedDeltaTime;
-
-        camTransform.position = new Vector3(camTransform.position.x, camTransform.position.y - rigidbodyAcceleration.y, camTransform.position.z);
 
         //Rotates vehicle up and down
-        rotation.y -= Input.GetAxis("Mouse Y") * jetRotateSpeed;
+        rotation.y -= Input.GetAxis("Mouse Y") * jetSensitivity;
         rotation.y = Mathf.Clamp(rotation.y, -70, 70);
 
 
@@ -61,10 +63,15 @@ public class playerController : MonoBehaviour
 
 
         //Vehicle movement
-        rigidbodyCam.velocity = transform.forward * speed + transform.right * Input.GetAxis("Horizontal") * speed;
+        currVel = transform.forward * speed + transform.right * Input.GetAxis("Horizontal") * speed;
+
+        if (Input.GetMouseButton(0)) currVel.z += Acceleration * Time.deltaTime;
+
+
+        rigidbodyVehicle.velocity = currVel;
 
         transform.localRotation = Quaternion.Euler(rotation.y, rotation.x, transform.rotation.z);
 
-        previousVelocity = rigidbodyCam.velocity;
+        
 }       
 }

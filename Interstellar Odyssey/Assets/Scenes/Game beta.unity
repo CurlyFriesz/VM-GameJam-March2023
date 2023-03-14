@@ -204,7 +204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802457087
 GameObject:
@@ -287,7 +287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862301498
 GameObject:
@@ -300,8 +300,6 @@ GameObject:
   - component: {fileID: 862301501}
   - component: {fileID: 862301500}
   - component: {fileID: 862301499}
-  - component: {fileID: 862301502}
-  - component: {fileID: 862301503}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -375,42 +373,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862301498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.38, z: -10.85}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1022954041}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 911543609}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &862301502
-MonoBehaviour:
+--- !u!1 &911543605
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862301498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73cae97be7a34684c84388eed00c9df9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0}
-  sensitivity: 2.38
-  speed: 5.44
-  rigidbodyCam: {fileID: 862301503}
-  jetRotateSpeed: 1
-  jetBody: {fileID: 1022954041}
-  jetSensitivity: 11.51
-  jetStop: 70
---- !u!54 &862301503
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911543609}
+  - component: {fileID: 911543607}
+  - component: {fileID: 911543606}
+  m_Layer: 0
+  m_Name: Character
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &911543606
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862301498}
+  m_GameObject: {fileID: 911543605}
   serializedVersion: 4
   m_Mass: 2
   m_Drag: 0
@@ -431,6 +427,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &911543607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911543605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73cae97be7a34684c84388eed00c9df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0}
+  sensitivity: 2.38
+  speed: 7.68
+  camTransform: {fileID: 862301501}
+  rigidbodyVehicle: {fileID: 911543606}
+  jetRotateSpeed: 1.86
+  maxForwardVelocity: 3.04
+  Acceleration: 1.38
+  ACCelEnergy: 0
+  jetBody: {fileID: 1022954041}
+  jetSensitivity: 0.96
+  jetStop: 33.2
+--- !u!4 &911543609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911543605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.38, z: -10.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 862301501}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022954035
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +583,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022954035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1.01, z: 2.71}
   m_LocalScale: {x: 1, y: 1, z: 2.7999997}
   m_ConstrainProportionsScale: 0
@@ -813,5 +849,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
