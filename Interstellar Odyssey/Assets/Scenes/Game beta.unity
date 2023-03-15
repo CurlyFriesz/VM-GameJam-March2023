@@ -476,11 +476,12 @@ MonoBehaviour:
   rotation: {x: 0, y: 0}
   sensitivity: 2.38
   camTransform: {fileID: 862301501}
+  camMoveConstant: 0.01
   rigidbodyVehicle: {fileID: 911543606}
   jetRotateSpeed: 1.86
   speed: 9
-  maxSpeed: 20
-  Acceleration: 0.1
+  maxSpeed: 40
+  Acceleration: 15
   ACCelEnergy: 0
   jetBody: {fileID: 292082967}
   jetSensitivity: 0.96

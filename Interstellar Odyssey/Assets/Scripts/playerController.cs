@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour
     public Vector2 rotation;
     public float sensitivity;
     public Transform camTransform;
+    public float camMoveConstant;
 
     //movement
     public Rigidbody rigidbodyVehicle;
@@ -76,7 +77,7 @@ public class playerController : MonoBehaviour
         currVel = transform.forward * speed + transform.right * Input.GetAxis("Horizontal") * speed;
         if (Input.GetMouseButton(0))
         {
-            currVel.z += Acceleration * Time.deltaTime; 
+            currVel += transform.forward * Acceleration * Time.deltaTime * 100f; 
             for(int i = 0; i < 3; i++)
             {
                 if (boostList[i].startColor != Color.blue)
@@ -86,11 +87,10 @@ public class playerController : MonoBehaviour
                     boostList[i].Play();
                 }
             }
-            Debug.Log(Acceleration * Time.deltaTime);
         }
         else
         {
-            currVel.z -= Acceleration * Time.deltaTime;
+            currVel -= transform.forward * Acceleration * Time.deltaTime * 100f;
             for (int i = 0; i < 3; i++)
             {
                 if (boostList[i].startColor != Color.red)
@@ -102,6 +102,8 @@ public class playerController : MonoBehaviour
             }
         }
         currVel.z = Mathf.Clamp(currVel.z, speed, maxSpeed);
+
+        //camTransform.localPosition = camTransform.localPosition - (maxSpeed -  currVel.z) * transform.forward * camMoveConstant / 1000f;
 
 
 
